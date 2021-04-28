@@ -57,6 +57,7 @@ namespace MVCBlog.Web
             services.AddDbContext<EFUnitOfWork>(options =>
                 options.UseSqlServer(
                     this.Configuration.GetConnectionString("EFUnitOfWork")));
+            services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<User>(config =>
                 {
@@ -118,7 +119,6 @@ namespace MVCBlog.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
             }
             else
             {
